@@ -6,8 +6,27 @@ import styles from '@/styles/Home.module.scss'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const SOCIALS = [
+  {
+    url: 'https://github.com/kitdesai',
+    imgUrl: '/github.svg'
+  },
+  {
+    url: 'https://twitter.com/kitdesai',
+    imgUrl: '/twitter.svg'
+  },
+  {
+    url: 'https://linkedin.com/in/kitdesai',
+    imgUrl: '/linkedin.png'
+  },
+  {
+    url: 'https://linktr.ee/kitdesai',
+    imgUrl: '/linktree.png'
+  }
+]
+
 export default function Home() {
-  const [imgIndex, setImgIndex] = React.useState(Math.round(Math.random()*58))
+  const [imgIndex, setImgIndex] = React.useState(() => Math.round(Math.random()*58))
   const backgroundImageUrl = React.useMemo(() => {
     return `https://kitdesai.s3.amazonaws.com/panoramas/IMG_${imgIndex}.jpg`
   }, [imgIndex])
@@ -34,9 +53,10 @@ export default function Home() {
                 <div>Smart Contracts & NFTs</div>
               </div>
               <div className={styles.innerContainer__icons}>
-                <a href='https://github.com/kitdesai' target='__blank'><img className={styles.innerContainer__icons__png} src='/github.svg' /></a>
-                <a href='https://twitter.com/kitdesai' target='__blank'><img className={styles.innerContainer__icons__png} src='/twitter.svg' /></a>
-                <a href='https://linkedin.com/in/kitdesai' target='__blank'><img className={styles.innerContainer__icons__png} src='/linkedin.png' /></a>
+                {SOCIALS.map(social => {
+                  const { url, imgUrl } = social
+                  return <a href={url} target='__blank'><img className={styles.innerContainer__icons__png} src={imgUrl} /></a>
+                })}
               </div>
             </div>
           </div>
