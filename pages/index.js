@@ -53,9 +53,9 @@ export default function Home() {
                 <div>Smart Contracts & NFTs</div>
               </div>
               <div className={styles.innerContainer__icons}>
-                {SOCIALS.map(social => {
+                {SOCIALS.map((social, index) => {
                   const { url, imgUrl } = social
-                  return <a href={url} target='__blank'><img className={styles.innerContainer__icons__png} src={imgUrl} /></a>
+                  return <a key={`social_${index}`} href={url} target='__blank'><img className={styles.innerContainer__icons__png} src={imgUrl} /></a>
                 })}
               </div>
             </div>
