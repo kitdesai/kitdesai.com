@@ -26,10 +26,13 @@ const SOCIALS = [
 ]
 
 export default function Home() {
-  const [imgIndex, setImgIndex] = React.useState(() => Math.round(Math.random()*58))
+  const getImgIndex = React.useCallback(() => {
+    return Math.round(Math.random()*58)
+  }, [])
+
   const backgroundImageUrl = React.useMemo(() => {
-    return `https://kitdesai.s3.amazonaws.com/panoramas/IMG_${imgIndex}.jpg`
-  }, [imgIndex])
+    return `https://kitdesai.s3.amazonaws.com/panoramas/IMG_${getImgIndex()}.jpg`
+  }, [])
   
   return (
     <>
