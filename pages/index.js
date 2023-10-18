@@ -26,12 +26,10 @@ const SOCIALS = [
 ]
 
 export default function Home() {
-  const getImgIndex = React.useCallback(() => {
-    return Math.round(Math.random()*58)
-  }, [])
-
-  const backgroundImageUrl = React.useMemo(() => {
-    return `https://kitdesai.s3.amazonaws.com/panoramas/IMG_${getImgIndex()}.jpg`
+  
+  const [imgUrl, setImgUrl] = React.useState(null)
+  React.useEffect(() => {
+    fetch('/api/backgrounds').then(res => res.json()).then(url => { setImgUrl(url) })
   }, [])
   
   return (
@@ -44,7 +42,7 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.container}>
-          <div className={styles.backgroundImage} style={{backgroundImage: `url("${backgroundImageUrl}")`}}>
+          <div className={styles.backgroundImage} style={{backgroundImage: `url("${imgUrl}")`}}>
             <div className={styles.innerContainer}>
               <div>
                 <img className={styles.innerContainer__pfp} src='/pfp.jpg' />
