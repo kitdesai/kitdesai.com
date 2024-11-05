@@ -9,13 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "aws-sdk": "^2.1691.0",
+    "googleapis": "^129.0.0",
+    "langchain": "^0.0.166",
+    "moment": "^2.30.1",
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18",
-    "sass": "^1.69.0"
+    "react-pdf": "^7.5.1",
+    "sass": "^1.69.0",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
+    "@types/react": "18.3.12",
     "eslint": "^8",
-    "eslint-config-next": "13.5.4"
+    "eslint-config-next": "13.5.4",
+    "typescript": "5.6.3"
   }
 }
