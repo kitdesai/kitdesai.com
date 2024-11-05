@@ -26,12 +26,12 @@ const SOCIALS = [
 ]
 
 export default function Home() {
-  
+
   const [imgUrl, setImgUrl] = React.useState(null)
   React.useEffect(() => {
     fetch('/api/backgrounds').then(res => res.json()).then(url => { setImgUrl(url) })
   }, [])
-  
+
   return (
     <>
       <Head>
@@ -48,7 +48,7 @@ export default function Home() {
                 <img className={styles.innerContainer__pfp} src='/pfp.jpg' />
                 <div className={styles.innerContainer__header}>Ankit Desai</div>
                 <div>Software Developer</div>
-                <div>12+ years experience</div>
+                <div>15+ years experience</div>
                 <div>Full stack</div>
                 <div>Mobile</div>
                 <div>Smart Contracts & NFTs</div>
