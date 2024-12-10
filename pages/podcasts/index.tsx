@@ -51,8 +51,8 @@ const Podcasts: React.FC = () => {
           });
 
           if (response.ok) {
-            const updatedPodcasts = await response.json();
-            setPodcasts(updatedPodcasts.podcasts);
+            const data = await response.json();
+            setPodcasts(data.podcasts);
           } else {
             console.error('Failed to add podcast');
           }

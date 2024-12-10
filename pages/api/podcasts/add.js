@@ -43,9 +43,6 @@ export default async function handler(req, res) {
       return res.status(400).json({ message: 'Missing required fields' });
     }
 
-    // Here you would typically add the new podcast to a database or data store.
-    // For this example, we'll just simulate adding it by returning a success message.
-
     const baseUrl = process.env.BASE_URL || 'http://localhost:3000';
     const response = await fetch(`${baseUrl}/api/podcasts`);
     const existingPodcasts = await response.json();
