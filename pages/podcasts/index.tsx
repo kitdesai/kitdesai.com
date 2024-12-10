@@ -53,6 +53,7 @@ const Podcasts: React.FC = () => {
           if (response.ok) {
             const data = await response.json();
             setPodcasts(data.podcasts);
+            (e.target as HTMLFormElement).reset();
           } else {
             console.error('Failed to add podcast');
           }

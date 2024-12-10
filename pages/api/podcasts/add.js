@@ -20,7 +20,7 @@ const generateRssFeed = (podcast) => {
   <title>${episode.title}</title>
   <description>${episode.description}</description>
   <pubDate>${new Date(episode.pubDate).toUTCString()}</pubDate>
-  <enclosure url="https://kitdesai-podcasts.s3.us-east-1.amazonaws.com/${episode.guid}.wav" type="audio/mpeg" />
+  <enclosure url="${episode.url}" type="audio/mpeg" />
   <guid>${episode.guid}</guid>
 </item>`).join('');
 
@@ -49,7 +49,7 @@ export default async function handler(req, res) {
 
     const updatedPodcasts = [
       ...existingPodcasts.podcasts,
-      { title, description, url, pubDate }
+      { title, description, url, pubDate, guid: url }
     ];
 
     const rss = generateRssFeed({

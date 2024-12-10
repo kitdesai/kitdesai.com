@@ -15,6 +15,8 @@ export default async function handler(req, res) {
         title: item.title[0],
         description: item.description[0],
         url: item.enclosure[0]['$'].url,
+        pubDate: item.pubDate[0],
+        guid: item.guid[0],
       }));
 
       return podcasts;
