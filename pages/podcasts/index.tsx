@@ -17,11 +17,11 @@ const Podcasts: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{padding: 50}}>
       <h1>Podcasts</h1>
       <ul>
         {podcasts.map((podcast, index) => (
-          <li key={index}>
+          <li key={index} style={{marginBottom: 20}}>
             <h2>{podcast.title}</h2>
             <p>{podcast.description}</p>
             <a href={podcast.url} target="_blank" rel="noopener noreferrer">
